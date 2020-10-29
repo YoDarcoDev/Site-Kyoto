@@ -1,0 +1,321 @@
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: 'Merienda One', cursive;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+
+
+/*-------------- NAVIGATION -------------*/
+
+nav {
+    position: fixed;
+    height: 70px;
+    width: 100%;
+    background: #333;
+    border-bottom: 1px dotted #f1f1f1;
+    background: linear-gradient(to bottom, #333, #626262);
+    z-index: 100;
+}
+
+
+/*-------------- Icone Hamburger -------------*/
+
+.logo-menu {
+    position: fixed;
+    top: 10px;
+    right: 15px;
+    width: 50px;
+    z-index: 250;
+    display: none;
+}
+
+
+.liste-nav {
+    background: #333;
+    background: linear-gradient(to bottom, #333, #626262);
+    border-bottom: 1px dotted #f1f1f1;
+    height: 70px;
+    width: 100%;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    z-index: 200;
+}
+
+
+.item-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.item-nav a {
+    font-size: 20px;
+    color: #f1f1f1;
+    text-decoration: none;
+    margin: 0 20px;
+}
+
+
+/*-------------- Span sous les titres Navigation-------------*/
+/* span : inline block*/
+
+.item-nav a::after {
+    content: '';
+    display: block;
+    margin: 0 auto;
+    width: 0%;
+    height: 2px;
+    background: #f1f1f1;
+    transition: all 0.2s ease-in-out
+}
+
+
+.item-nav a:hover::after {
+    width: 100%;
+}
+
+
+@media screen and (max-width: 700px) {
+    
+    .logo-menu {
+        display: block;
+    }
+
+    .liste-nav {
+        display: none;
+        flex-direction: column;
+        height: auto;
+    }
+
+    .liste-nav.active {
+        display: block;
+    }
+
+    .item-nav {
+        height: 70px;
+    }
+
+    .item-nav:nth-child(1) {
+        margin-top: 70px;
+    }
+}
+
+
+/*-------------- ACCUEIL BANNIERE -------------*/
+
+.accueil {
+    width: 100%;
+    height: 100vh;
+    background-image: url('ressources/accueil-pic-lum-down.jpg'); /* Réduire luminosité pour image car texte */
+    background-position: center;
+    padding-top: 1px;   /* Pour éviter la fusion des marges */
+    border-bottom: 1px dotted #777;
+}
+
+
+.logo-kyoto {
+    border-radius: 50%;
+    text-shadow: 0 0 10px #000;
+    width: 180px;
+    display: block;
+    margin: 180px auto 0;
+}
+
+
+.accueil h1 {
+    text-align: center;
+    font-family: Merienda one, sans-serif;
+    font-size: 100px;
+    text-shadow: 0 0 10px #000;
+    color: #f1f1f1;
+    margin: 10px 0 0 0;
+}
+
+
+.sous-titre {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    color: #f1f1f1;
+    margin: 5px 0;
+    text-shadow: 0 0 10px #000;
+}
+
+
+.btn-accueil {
+    border-radius: 9999px;
+    background: crimson;
+    border: 1px solid #333;
+    color: #f1f1f1;
+    text-align: center;
+    font-size: 22px;
+    display: block;
+    width: 200px;
+    height: 70px;
+    line-height: 70px;
+    text-decoration: none;
+    margin: 30px auto 0;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+
+.btn-accueil:hover {
+    background: rgb(177, 0, 36);
+    color: #fff;
+}
+
+
+@media screen and (max-width: 850px) {
+
+    .accueil {
+        height: 650px;
+    }
+
+    .logo-kyoto {
+        margin: 120px auto 0;
+    }
+
+    .accueil h1 {
+        font-size: 60px;
+    }
+
+    .sous-titre {
+        font-size: 23px
+    }
+
+    .btn-accueil {
+        width: 150px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 18px;
+        margin: 15px auto 0;
+    }
+}
+
+
+
+@media screen and (max-width: 400px) {
+
+    .accueil {
+        height: 550px;
+    }
+
+    .logo-kyoto {
+        width: 150px;
+        margin: 110px auto 0;
+    }
+
+    .accueil h1 {
+        font-size: 35px;
+    }
+
+    .sous-titre {
+        font-size: 20px
+    }
+
+    .btn-accueil {
+        width: 130px;
+        height: 45px;
+        line-height: 45px;
+        font-size: 16px;
+        margin: 15px auto 0;
+    }
+
+    .logo-menu {
+        top: 15px;
+        width: 40px;
+    }
+}
+
+
+
+/*-------------- SECTION ASYMETRIQUE -------------*/
+
+.section-asymetrique {
+    display: grid;
+    grid-template: 200px repeat(24, 150px) / 1fr 600px 1fr 600px 1fr;
+    background: #f1f1f1;
+}
+
+
+.section-asymetrique h2 {
+    /* debut row / debut col / fin row / fin col */
+    grid-area: 1 / 1 / 2 / -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    font-size: 70px;
+    padding-top: 50px;
+}
+
+
+/*-------------- Bloc-1 -------------*/
+
+.bloc-1 {
+    grid-area: 3 / 2 / 8 / 3;
+    background: #333;
+    color: #f1f1f1;
+    position: relative;
+    left: 100px;
+    border-radius: 2px;
+}
+
+
+.bloc-1 img {
+    position: absolute;
+    left: 300px;
+    top: 100px;
+    width: 100%;
+}
+
+
+.bloc-txt-1 {
+    width: 50%;
+    height: 100%;
+}
+
+
+.bloc-txt-1 h3 {
+    width: 150%!important;
+    font-size: 35px;
+    margin: 15px 0;
+    padding: 15px;
+}
+
+
+.bloc-txt-1 p {
+    line-height: 40px;
+    padding: 15px;
+}
+
+
+.btn-bloc-left {
+    border-radius: 9999px;
+    outline: 0;
+    border: 0;
+    background: crimson;
+    border: 1px solid #333;
+    color: #f1f1f1;
+    padding: 20px 35px;
+    font-size: 20px;
+    display: flex;
+    margin: 10px auto;
+    cursor: pointer;
+}
