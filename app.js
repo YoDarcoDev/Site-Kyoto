@@ -8,3 +8,14 @@ btnMenu.addEventListener('click', function() {
 });
 
 
+
+
+// MENU QUI SE FERME AU CLICK
+const allLinks = document.querySelectorAll('.item-nav');
+
+allLinks.forEach(function(item) {
+    
+    item.addEventListener('click', function() {
+        menu.classList.toggle('active');
+    })
+});
